@@ -39,7 +39,7 @@ export const sendMessage = async (req, res) => {
         const { id: receiverId } = req.params;
         const { text, image } = req.body;
 
-        if (!text || !image) {
+        if (!text && !image) {
             return res.status(400).json({ message: "Text or image is required" });
         }
         if (senderId.equales(receiverId)) {
